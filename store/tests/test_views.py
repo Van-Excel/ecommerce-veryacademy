@@ -1,8 +1,10 @@
+from django.http import HttpRequest
 from django.test import TestCase, Client
 from unittest import skip
 from django.contrib.auth.models import User
 from store.models import Category, Products
 from django.urls import reverse
+from store.views import *
 
 
 class TestViewresponse(TestCase):
@@ -32,6 +34,13 @@ class TestViewresponse(TestCase):
     def test_category_detail_url(self):
         res =self.c.get(reverse('store:categories', args=['django']))
         self.assertEqual(res.status_code, 200)
+
+    def test_homepage_template(self):
+        request = HttpRequest()
+        response = all_products(request)
+        html = response.content.decode('utf-8')
+        self.assertIn('<title> Home </title>',html)
+
 
     
 
