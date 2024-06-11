@@ -1,9 +1,11 @@
-from django.http import HttpRequest
-from django.test import TestCase, Client
 from unittest import skip
+
 from django.contrib.auth.models import User
-from store.models import Category, Products
+from django.http import HttpRequest
+from django.test import Client, TestCase
 from django.urls import reverse
+
+from store.models import Category, Products
 from store.views import *
 
 
