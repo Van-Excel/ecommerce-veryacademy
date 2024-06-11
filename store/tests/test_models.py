@@ -46,6 +46,8 @@ class ProductsModelTest(TestCase):
         self.assertIsInstance(dataInstance, Products) 
         self.assertEqual(str(dataInstance), 'django for professionals')
         #self.assert(isinstance(dataInstance, Product))
+
+    
         
         
         
