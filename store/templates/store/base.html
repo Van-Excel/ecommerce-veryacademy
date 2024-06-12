@@ -26,26 +26,24 @@
                 
                       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                         <li><a href="{% url 'store:all_products' %}" class="nav-link px-2 link-secondary">Home</a></li>
-                        <li><a href="#" class="nav-link px-2">Features</a></li>
-                        <li><a href="#" class="nav-link px-2">Pricing</a></li>
-                        <li><a href="#" class="nav-link px-2">FAQs</a></li>
-                        <li><a href="#" class="nav-link px-2">About</a></li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">
+                              Library
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="{% url 'store:all_products' %} ">All</a></li>
+                              {% for c in categories %}
+                              <li {% if category.slug == c.slug %}class="selected" {% endif %}>
+                                  <a class="dropdown-item" href="{{ c.get_absolute_url}}">{{ c.name|title }}</a>
+                              </li>
+                              {% endfor %}
+                          </ul>
+                      </li>
+                        
                       </ul>
 
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Library
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'store:all_products' %} ">All</a></li>
-                            {% for c in categories %}
-                            <li {% if category.slug == c.slug %}class="selected" {% endif %}>
-                                <a class="dropdown-item" href="{{ c.get_absolute_url}}">{{ c.name|title }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </li>
+                      
                 
                       <div class="col-md-3 text-end">
                         <button type="button" class="btn btn-outline-primary me-2">Login</button>
