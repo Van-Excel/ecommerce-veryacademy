@@ -7,7 +7,7 @@ from .models import Category, Products
 def all_products(request):
     
     #It is an SQL query. SELECT * from Products table
-    productList = Products.objects.all()
+    productList = Products.products.all()
     
     return render(request,  'store/home.html', {'product': productList})
 
