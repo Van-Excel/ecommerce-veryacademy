@@ -1,7 +1,7 @@
 {% extends 'store/base.html' %}
 {% load static %}
 
-{% block title%} My Shop{% endblock %}
+{% block title%} Home {% endblock %}
 
 
 {% block content %}
@@ -22,10 +22,10 @@
         </div>
     </section>
 
-    <div class="album py-5 bg-body-tertiary">
-        <div class="container">
+    <div class="album py-4 bg-body-tertiary">
+        
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
 
 
                 {% for product in product%}
@@ -33,7 +33,7 @@
 
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{product.image.url}}" >
+                        <img class="object-fit-contain border rounded" alt="Responsive image" src="{{product.image.url}}" >
                         <div class="card-body">
                             <p class="card-text"><a class="text-dark text text-decoration-none" href="{{product.get_absolute_url}}">{{product.title}}</a></p>
                             <p class="card-text">{{product.price}}</p>
@@ -54,7 +54,7 @@
 
             
         </div>
-    </div>
+    
     </div>
 
 </main>

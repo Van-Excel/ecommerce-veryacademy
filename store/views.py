@@ -29,4 +29,3 @@ def categories_list(request, category_slug):
     products =Products.objects.filter(category= category)
 
     return render(request, 'store/product/category.html', {'products':products, 'category':category})
-
