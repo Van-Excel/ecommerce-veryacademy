@@ -4,15 +4,6 @@ from .models import Category, Products
 
 # Create your views here.
 
-
-
-
-def categories(request):
-    return {
-        "categories": Category.objects.all()
-    }
-    
-
 def all_products(request):
     
     #It is an SQL query. SELECT * from Products table
